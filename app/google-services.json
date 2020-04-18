@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "647428111208",
+    "firebase_url": "https://instalearning-8ac54.firebaseio.com",
+    "project_id": "instalearning-8ac54",
+    "storage_bucket": "instalearning-8ac54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647428111208:android:7a6bdcbb0cfab5a306b4dd",
+        "android_client_info": {
+          "package_name": "com.example.instalearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647428111208-cb0pgloc8ts1n7du0dodm1d590rgu61u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD274EqWOUk5wP-nT9n996JxuC69GW3fRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647428111208-cb0pgloc8ts1n7du0dodm1d590rgu61u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
