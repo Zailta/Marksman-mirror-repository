@@ -35,7 +35,7 @@ class LoginScreen : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 val user: FirebaseUser? = auth.currentUser
                                 //save in database
-                                if (user != null) {
+                                if (user != null && user.isEmailVerified) {
                                     myRef.child("Users").child(SplitString(user.email.toString()))
                                             .setValue(user.uid)
                                 }
