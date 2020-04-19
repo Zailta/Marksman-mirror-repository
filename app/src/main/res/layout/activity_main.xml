@@ -2,32 +2,54 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#2E5339"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/getstarted"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Get Started"
-        android:textColor="#ffff"
+        android:layout_width="265dp"
+        android:layout_height="48dp"
+        android:background="#D0E3C4"
+        android:text="@string/get_started"
+        android:textColor="#2E5339"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintVertical_bias="0.726" />
 
-    <Button
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="275dp"
+        android:layout_height="203dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="158dp"
+        app:layout_constraintBottom_toTopOf="@+id/getstarted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/catch1"
+        android:contentDescription="@null"
+         />
+
+    <ImageButton
         android:id="@+id/login"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Log In"
-        android:textColor="#ffff"
+        android:layout_width="294dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="116dp"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/getstarted"
+        app:srcCompat="@drawable/loginx"
+        android:contentDescription="@null"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

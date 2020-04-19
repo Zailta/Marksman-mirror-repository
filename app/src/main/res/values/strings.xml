@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InstaLearning</string>
+    <string name="desc" />
+    <string name="get_started">Get Started</string>
 </resources>
