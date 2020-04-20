@@ -25,14 +25,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    public override fun onStart() {
-        super.onStart()
-        var mFirebaseuser: FirebaseUser? = mFirebase?.currentUser
-        if (mFirebaseuser!= null){
-            startActivity(Intent(this, HomeScreen::class.java))
-        }else
-        {
-            Toast.makeText(baseContext,"Welcome", Toast.LENGTH_LONG).show()
-        }
-    }
 }

@@ -18,7 +18,7 @@ class SignupScreen : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-        button.setOnClickListener {
+        nextbuttonform1.setOnClickListener {
             if (email.text.toString().isNotEmpty() && password.text.toString().isNotEmpty())
             {
                 auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
@@ -41,8 +41,7 @@ class SignupScreen : AppCompatActivity() {
 
                                             }
                                         }
-                            } else {setContentView(R.layout.activity_signup_forms1)
-                            button.setOnClickListener{setContentView(R.layout.activity_signup_forms1)}
+                            } else {
 
                                 Toast.makeText(
                                         baseContext,

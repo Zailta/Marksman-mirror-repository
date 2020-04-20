@@ -19,6 +19,11 @@ class LoginScreen : AppCompatActivity() {
         setContentView(R.layout.activity_login_screen)
         auth = FirebaseAuth.getInstance()
 
+        imageButton1.setOnClickListener {
+            startActivity(Intent(this , MainActivity::class.java))
+            finish()
+        }
+
 
 
         loginbutton.setOnClickListener {
@@ -59,7 +64,7 @@ class LoginScreen : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser?) {
         if(currentUser!=null) {
             if (currentUser.isEmailVerified) {
-                var intent= Intent(this, HomeScreen::class.java)
+                var intent= Intent(this, SignupForm1::class.java)
                 intent.putExtra("email",currentUser.email)
                 intent.putExtra("uid",currentUser.uid)
                 startActivity(intent)
