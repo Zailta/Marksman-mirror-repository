@@ -34,12 +34,16 @@ class SignupScreen : AppCompatActivity() {
                                                         "User Creation was success",
                                                         Toast.LENGTH_LONG
                                                 ).show()
+
+
                                                 startActivity(Intent(this, LoginScreen::class.java))
                                                 finish()
 
                                             }
                                         }
-                            } else {
+                            } else {setContentView(R.layout.activity_signup_forms1)
+                            button.setOnClickListener{setContentView(R.layout.activity_signup_forms1)}
+
                                 Toast.makeText(
                                         baseContext,
                                         "You Are an Existing User Please Login",
@@ -51,6 +55,10 @@ class SignupScreen : AppCompatActivity() {
                             // ...
                         }
             }else{
+
+
+
+
                 Toast.makeText(baseContext,"Please fill in all paramerters", Toast.LENGTH_LONG).show()
 
             }
