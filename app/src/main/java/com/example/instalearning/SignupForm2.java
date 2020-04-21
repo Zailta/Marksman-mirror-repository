@@ -36,7 +36,7 @@ public class SignupForm2 extends AppCompatActivity {
 
         //grabing all fields
         hours = findViewById(R.id.editText9);
-        fees = findViewById(R.id.editText9);
+        fees = findViewById(R.id.editText10);
         buttonFive = findViewById(R.id.form2backbutton);
         buttonSix = findViewById(R.id.nextbuttonform2);
 
