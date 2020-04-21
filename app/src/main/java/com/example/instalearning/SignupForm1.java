@@ -1,14 +1,16 @@
 package com.example.instalearning;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.instalearning.model.Member;
 
 public class SignupForm1 extends AppCompatActivity {
 
@@ -16,7 +18,11 @@ public class SignupForm1 extends AppCompatActivity {
     EditText name,phoneNum;
     //ImageButton for previous page(activity_signup_screen.xml) and next page(activity_form3.xml)
     ImageButton buttonOne, buttonTwo;
+    //Radiogroup for gender
+    RadioGroup rg;
 
+    String email ;
+    Member member;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,14 @@ public class SignupForm1 extends AppCompatActivity {
         phoneNum = findViewById(R.id.editText2);
         buttonOne = findViewById(R.id.form1backbutton);
         buttonTwo = findViewById(R.id.nextbuttonform1);
+        rg = findViewById(R.id.gender);
+
+
+//        grabing email from signup page
+        Intent intent = getIntent();
+        email = intent.getStringExtra("email");
+//        name.setText(email);
+
 
         //This button takes back to activity_signup_form1.xml
         buttonOne.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +68,7 @@ public class SignupForm1 extends AppCompatActivity {
     public void nextClickOne()
     {
         // To check whether user as filled all the details in activity_signup_form1.xml or not
-        if(name.getText().toString().isEmpty() && phoneNum.getText().toString().isEmpty())
+        if(name.getText().toString().isEmpty() && phoneNum.getText().toString().isEmpty() )
         {
             Toast.makeText(this,"Please fill all the parameters",Toast.LENGTH_SHORT).show();
         }
@@ -65,8 +79,17 @@ public class SignupForm1 extends AppCompatActivity {
             Bundle bundle = new Bundle();
             String nameValue = name.getText().toString();
             String phoneVal = phoneNum.getText().toString();
-            bundle.putString("Name",nameValue);
-            bundle.putString("Phone",phoneVal);
+            member = new Member();
+            member.setEmail(email);
+            member.setName(nameValue);
+            member.setPhoneNum(phoneVal);
+
+            bundle.putParcelable("Member",member);
+
+
+//            bundle.putString("email",email);
+//            bundle.putString("Name",nameValue);
+//            bundle.putString("Phone",phoneVal);
             Intent intent = new Intent(SignupForm1.this,SignupForm3.class);
             intent.putExtras(bundle);
             startActivity(intent);

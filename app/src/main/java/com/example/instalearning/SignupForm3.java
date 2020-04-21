@@ -42,8 +42,8 @@ public class SignupForm3 extends AppCompatActivity {
         //grabing details of previous page(activity_signup_form1.xml)
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        final String name = bundle.getString("Name");
-        final String phone = bundle.getString("Phone");
+
+        member = bundle.getParcelable("Member");
 
 
         //this button takes user back to activity_signup_form1.xml
@@ -61,10 +61,18 @@ public class SignupForm3 extends AppCompatActivity {
             public void onClick(View v) {
 
                 nextClickThree();
-
+//
 //                String professionValue = profession.getTag().toString();
 //                String domainValue = domain.getText().toString();
 //                String cInstituteValue = cInstitute.getText().toString();
+//
+//
+//                member.setProfession(professionValue);
+//                member.setDomain(domainValue);
+//                member.setcInstitute(cInstituteValue);
+
+
+
 
 
             }
@@ -94,7 +102,22 @@ public class SignupForm3 extends AppCompatActivity {
 
         else
         {
+
+            Bundle bundle = new Bundle();
+
+            String professionValue = profession.getText().toString();
+            String domainValue = domain.getText().toString();
+            String cInstituteValue = cInstitute.getText().toString();
+
+
+            member.setProfession(professionValue);
+            member.setDomain(domainValue);
+            member.setcInstitute(cInstituteValue);
+
+            bundle.putParcelable("Members",member);
+
             Intent intent = new Intent(SignupForm3.this,SignupForm2.class);
+            intent.putExtras(bundle);
             startActivity(intent);
         }
     }

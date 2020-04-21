@@ -1,21 +1,61 @@
 package com.example.instalearning.model;
 
-public class Member {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Member implements Parcelable {
+    String email;
     String name;
     String phoneNum;
     String profession;
     String domain;
     String cInstitute;
+    String hour;
+    String fees;
 
-    public Member(String name, String phoneNum, String profession, String domain, String cInstitute) {
+    public Member(String email, String name, String phoneNum, String profession, String domain, String cInstitute, String hour, String fees) {
+        this.email = email;
         this.name = name;
         this.phoneNum = phoneNum;
         this.profession = profession;
         this.domain = domain;
         this.cInstitute = cInstitute;
+        this.hour = hour;
+        this.fees = fees;
     }
 
     public Member() {
+    }
+
+    protected Member(Parcel in) {
+        email = in.readString();
+        name = in.readString();
+        phoneNum = in.readString();
+        profession = in.readString();
+        domain = in.readString();
+        cInstitute = in.readString();
+        hour = in.readString();
+        fees = in.readString();
+    }
+
+    public static final Creator<Member> CREATOR = new Creator<Member>() {
+        @Override
+        public Member createFromParcel(Parcel in) {
+            return new Member(in);
+        }
+
+        @Override
+        public Member[] newArray(int size) {
+            return new Member[size];
+        }
+    };
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -56,5 +96,38 @@ public class Member {
 
     public void setcInstitute(String cInstitute) {
         this.cInstitute = cInstitute;
+    }
+
+    public String getHour() {
+        return hour;
+    }
+
+    public void setHour(String hour) {
+        this.hour = hour;
+    }
+
+    public String getFees() {
+        return fees;
+    }
+
+    public void setFees(String fees) {
+        this.fees = fees;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(email);
+        dest.writeString(name);
+        dest.writeString(phoneNum);
+        dest.writeString(profession);
+        dest.writeString(domain);
+        dest.writeString(cInstitute);
+        dest.writeString(hour);
+        dest.writeString(fees);
     }
 }

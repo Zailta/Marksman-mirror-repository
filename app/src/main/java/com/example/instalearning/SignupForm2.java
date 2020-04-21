@@ -1,5 +1,6 @@
 package com.example.instalearning;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,14 +9,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.example.instalearning.model.Member;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupForm2 extends AppCompatActivity {
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
+    DatabaseReference rootref = db.getReference();
+    DatabaseReference userRef = rootref.child("Users");
 
 
     //Edit Text for HoursPerWeek and FeesPerClass
     EditText hours,fees;
     //ImageButton for previous page(activity_signup_form3.xml) and submit button
     ImageButton buttonFive, buttonSix;
+
+    Member member;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +39,12 @@ public class SignupForm2 extends AppCompatActivity {
         fees = findViewById(R.id.editText9);
         buttonFive = findViewById(R.id.form2backbutton);
         buttonSix = findViewById(R.id.nextbuttonform2);
+
+        //getting data
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        member = bundle.getParcelable("Members");
 
         // This button takes back to activity_signup_form3.xml
         buttonFive.setOnClickListener(new View.OnClickListener() {
@@ -40,9 +59,34 @@ public class SignupForm2 extends AppCompatActivity {
         buttonSix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                submit();
             }
         });
 
     }
+
+    public void submit()
+
+    {
+
+            String hourValue = hours.getText().toString();
+            String feesValue = fees.getText().toString();
+
+            member.setHour(hourValue);
+            member.setFees(feesValue);
+
+            userRef.push().setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+
+                    Toast.makeText(SignupForm2.this, "Success", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(SignupForm2.this, "Failure", Toast.LENGTH_SHORT).show();
+                }
+            })
+
+;    }
 }
