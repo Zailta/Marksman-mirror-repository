@@ -17,8 +17,6 @@ import kotlinx.android.synthetic.main.activity_login_screen.*
 
 class LoginScreen : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private var database = FirebaseDatabase.getInstance()
-    private var myRef=database.getReference()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,11 +46,7 @@ class LoginScreen : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 val user: FirebaseUser? = auth.currentUser
-                                //save in database
-                                if (user != null && user.isEmailVerified) {
-                                    myRef.child("Users").child(SplitString(user.email.toString()))
-                                            .setValue(user.uid)
-                                }
+
                                 updateUI(user)
 
                             } else {
@@ -109,7 +103,7 @@ class LoginScreen : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser?) {
         if(currentUser!=null) {
             if (currentUser.isEmailVerified) {
-                var intent= Intent(this, SignupForm1::class.java)
+                var intent= Intent(this, HomeScreen::class.java)
                 intent.putExtra("email",currentUser.email)
                 intent.putExtra("uid",currentUser.uid)
                 startActivity(intent)
@@ -123,8 +117,5 @@ class LoginScreen : AppCompatActivity() {
         }
 
     }
-    fun SplitString(str:String):String{
-        var split = str.split("@")
-        return split[0]
-    }
+
 }

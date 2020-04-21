@@ -7,10 +7,14 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup_screen.*
 
 class SignupScreen : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private var database = FirebaseDatabase.getInstance()
+    private var myRef=database.getReference()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +40,20 @@ class SignupScreen : AppCompatActivity() {
                                                         "User Creation was success",
                                                         Toast.LENGTH_LONG
                                                 ).show()
+                                                var currentUser: FirebaseUser? = auth.currentUser
 
+                                                var intent= Intent(this, SignupForm1::class.java)
+                                                if (currentUser != null) {
+                                                    intent.putExtra("email",currentUser.email)
+                                                    intent.putExtra("uid",currentUser.uid)
 
-                                                startActivity(Intent(this, LoginScreen::class.java))
-                                                finish()
+                                                }
+                                                startActivity(intent)
+                                                //save in database
+                                                if (user != null) {
+                                                    myRef.child("Users").child(SplitString(user.email.toString()))
+                                                            .setValue(user.uid)
+                                                }
 
                                             }
                                         }
@@ -66,6 +80,11 @@ class SignupScreen : AppCompatActivity() {
 
 
         }
+    }
+
+    fun SplitString(str:String):String{
+        var split = str.split("@")
+        return split[0]
     }
 
 }
