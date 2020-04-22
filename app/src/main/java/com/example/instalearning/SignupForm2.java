@@ -60,6 +60,8 @@ public class SignupForm2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 submit();
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -79,12 +81,12 @@ public class SignupForm2 extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
 
-                    Toast.makeText(SignupForm2.this, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupForm2.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(SignupForm2.this, "Failure", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupForm2.this, "Failure Try Again", Toast.LENGTH_SHORT).show();
                 }
             })
 
