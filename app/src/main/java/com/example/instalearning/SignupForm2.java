@@ -28,6 +28,7 @@ public class SignupForm2 extends AppCompatActivity {
     //ImageButton for previous page(activity_signup_form3.xml) and submit button
     ImageButton buttonFive, buttonSix;
 
+    // class that it used for grabing all details
     Member member;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,8 @@ public class SignupForm2 extends AppCompatActivity {
 
     }
 
+
+    // after user clicks the submit button it details goes to Firebase database
     public void submit()
 
     {

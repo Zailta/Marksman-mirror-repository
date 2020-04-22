@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -19,9 +20,14 @@ public class SignupForm1 extends AppCompatActivity {
     //ImageButton for previous page(activity_signup_screen.xml) and next page(activity_form3.xml)
     ImageButton buttonOne, buttonTwo;
     //Radiogroup for gender
-    RadioGroup rg;
+    RadioGroup mGender;
+    //RadioButton for gender selection
+    RadioButton mGenderOption;
 
-    String email ;
+
+    // Strings for data
+    String email, nameValue, phoneVal,genderVal;
+    //Class that is used to grab all details
     Member member;
 
     @Override
@@ -34,13 +40,39 @@ public class SignupForm1 extends AppCompatActivity {
         phoneNum = findViewById(R.id.editText2);
         buttonOne = findViewById(R.id.form1backbutton);
         buttonTwo = findViewById(R.id.nextbuttonform1);
-        rg = findViewById(R.id.gender);
+        mGender = findViewById(R.id.gender);
 
 
 //        grabing email from signup page
         Intent intent = getIntent();
         email = intent.getStringExtra("email");
-//        name.setText(email);
+
+
+        // functionality of radioGroup Button
+
+        mGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                mGenderOption = mGender.findViewById(checkedId);
+
+                switch (checkedId)
+                {
+                    case R.id.radioButton1:
+                        genderVal = mGenderOption.getText().toString();
+                        break;
+                    case R.id.radioButton2:
+                        genderVal = mGenderOption.getText().toString();
+                        break;
+                    case R.id.radioButton3:
+                        genderVal = mGenderOption.getText().toString();
+                        break;
+                    case R.id.radioButton4:
+                        genderVal = mGenderOption.getText().toString();
+                        break;
+                    default:
+                }
+            }
+        });
 
 
         //This button takes back to activity_signup_form1.xml
@@ -68,7 +100,7 @@ public class SignupForm1 extends AppCompatActivity {
     public void nextClickOne()
     {
         // To check whether user as filled all the details in activity_signup_form1.xml or not
-        if(name.getText().toString().isEmpty() && phoneNum.getText().toString().isEmpty() )
+        if(name.getText().toString().isEmpty() && phoneNum.getText().toString().isEmpty() && mGender.toString().isEmpty() )
         {
             Toast.makeText(this,"Please fill all the parameters",Toast.LENGTH_SHORT).show();
         }
@@ -76,20 +108,17 @@ public class SignupForm1 extends AppCompatActivity {
         // takes the user to activity_signup_form3.xml
         else
         {
-            Bundle bundle = new Bundle();
-            String nameValue = name.getText().toString();
-            String phoneVal = phoneNum.getText().toString();
-            member = new Member();
-            member.setEmail(email);
-            member.setName(nameValue);
-            member.setPhoneNum(phoneVal);
+             Bundle bundle = new Bundle();
+             nameValue = name.getText().toString();
+             phoneVal = phoneNum.getText().toString();
+
+             member = new Member();
+             member.setEmail(email);
+             member.setName(nameValue);
+             member.setPhoneNum(phoneVal);
+             member.setGender(genderVal);
 
             bundle.putParcelable("Member",member);
-
-
-//            bundle.putString("email",email);
-//            bundle.putString("Name",nameValue);
-//            bundle.putString("Phone",phoneVal);
             Intent intent = new Intent(SignupForm1.this,SignupForm3.class);
             intent.putExtras(bundle);
             startActivity(intent);

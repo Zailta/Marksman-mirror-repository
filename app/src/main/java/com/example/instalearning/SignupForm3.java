@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignupForm3 extends AppCompatActivity {
 
 
+    // class used to grab all the details
     private Member member;
 
     //Edit Text for profession, Domain, Current Institute
@@ -61,15 +62,6 @@ public class SignupForm3 extends AppCompatActivity {
             public void onClick(View v) {
 
                 nextClickThree();
-//
-//                String professionValue = profession.getTag().toString();
-//                String domainValue = domain.getText().toString();
-//                String cInstituteValue = cInstitute.getText().toString();
-//
-//
-//                member.setProfession(professionValue);
-//                member.setDomain(domainValue);
-//                member.setcInstitute(cInstituteValue);
 
 
 
@@ -83,15 +75,6 @@ public class SignupForm3 extends AppCompatActivity {
 
     }
 
-//    public void getIntentOne()
-//    {
-//        Intent intent = getIntent();
-//        Bundle bundle = intent.getExtras();
-//        final String name = bundle.getString("");
-//        final String phone = bundle.getString("Phone");
-//    }
-
-
     public  void nextClickThree()
     {
         // To check whether user as filled all the details in activity_signup_form3.xml or not
@@ -100,6 +83,7 @@ public class SignupForm3 extends AppCompatActivity {
             Toast.makeText(this,"Please fill all the Parameters",Toast.LENGTH_SHORT).show();
         }
 
+//        this  grabs all details from previous activity and sends it to next
         else
         {
 
