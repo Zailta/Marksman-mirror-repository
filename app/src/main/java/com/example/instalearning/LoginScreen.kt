@@ -122,7 +122,7 @@ class LoginScreen : AppCompatActivity() {
 
     }
     fun SplitString(str:String):String{
-        var split = str.split("@")
+        var split = str.split(".", "@")
         return split[0]
     }
 
