@@ -22,8 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignupForm2 extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     // Write a message to the database
-    DatabaseReference rootref = db.getReference();
-    DatabaseReference userRef = rootref.child("Users");
+    DatabaseReference rootref = db.getReference("Users");
 
 
 
@@ -80,11 +79,12 @@ public class SignupForm2 extends AppCompatActivity {
     {
             String hourValue = hours.getText().toString();
             String feesValue = fees.getText().toString();
+            String actualEmail;
 
             member.setHour(hourValue);
             member.setFees(feesValue);
 
-        userRef.child(member.getName()).push().setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+        rootref.child(actualEmail=SplitString(member.getEmail())).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
 
@@ -98,6 +98,10 @@ public class SignupForm2 extends AppCompatActivity {
             })
 
 ;    }
+    private String SplitString(String email){
+        String[] For_split_email=email.split("[@._]");
+        return For_split_email[0];
+    }
 
 
 }
