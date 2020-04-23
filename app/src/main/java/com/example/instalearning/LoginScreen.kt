@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_login_screen.*
 
 class LoginScreen : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private var database = FirebaseDatabase.getInstance()
+    private var myRef=database.getReference()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,22 +41,24 @@ class LoginScreen : AppCompatActivity() {
                             .isNotEmpty()
             ){
 
-                auth.signInWithEmailAndPassword(
-                        loginemail.text.toString(),
-                        loginpassword.text.toString()
-                )
+                auth.signInWithEmailAndPassword(loginemail.text.toString(), loginpassword.text.toString())
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 val user: FirebaseUser? = auth.currentUser
 
+                                //save in database
+                                if (user != null && user.isEmailVerified) {
+                                    myRef.child("Verified Users").child(SplitString(user.email.toString()))
+                                            .setValue(user.uid)
+                                }
                                 updateUI(user)
+
+
 
                             } else {
                                 Toast.makeText(baseContext, "Login Failed", Toast.LENGTH_LONG).show()
                                 updateUI(null)
-
                             }
-
                         }
             }else{
                 Toast.makeText(baseContext,"Please enter in all parameters", Toast.LENGTH_LONG).show()
@@ -116,6 +120,10 @@ class LoginScreen : AppCompatActivity() {
             Toast.makeText(baseContext,"something went wrong, please try again", Toast.LENGTH_LONG).show()
         }
 
+    }
+    fun SplitString(str:String):String{
+        var split = str.split("@")
+        return split[0]
     }
 
 }

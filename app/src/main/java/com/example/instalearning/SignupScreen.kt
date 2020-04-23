@@ -34,27 +34,8 @@ class SignupScreen : AppCompatActivity() {
                                 user?.sendEmailVerification()
                                         ?.addOnCompleteListener { task ->
                                             if (task.isSuccessful) {
-
-                                                Toast.makeText(
-                                                        baseContext,
-                                                        "User Creation was success",
-                                                        Toast.LENGTH_LONG
-                                                ).show()
-                                                var currentUser: FirebaseUser? = auth.currentUser
-
-                                                var intent= Intent(this, SignupForm1::class.java)
-                                                if (currentUser != null) {
-                                                    intent.putExtra("email",currentUser.email)
-                                                    intent.putExtra("uid",currentUser.uid)
-
-                                                }
-                                                startActivity(intent)
-                                                //save in database
-                                                if (user != null) {
-                                                    myRef.child("Users").child(SplitString(user.email.toString()))
-                                                            .setValue(user.uid)
-                                                }
-
+                                                Toast.makeText(baseContext, "A verification link has been sent to your email ", Toast.LENGTH_LONG).show()
+                                                startActivity(Intent(this,SignupForm1::class.java))
                                             }
                                         }
                             } else {
@@ -71,9 +52,6 @@ class SignupScreen : AppCompatActivity() {
                         }
             }else{
 
-
-
-
                 Toast.makeText(baseContext,"Please fill in all paramerters", Toast.LENGTH_LONG).show()
 
             }
@@ -81,10 +59,4 @@ class SignupScreen : AppCompatActivity() {
 
         }
     }
-
-    fun SplitString(str:String):String{
-        var split = str.split("@")
-        return split[0]
-    }
-
 }

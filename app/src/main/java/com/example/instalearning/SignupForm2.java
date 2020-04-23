@@ -14,13 +14,17 @@ import android.widget.Toast;
 import com.example.instalearning.model.Member;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupForm2 extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
+    // Write a message to the database
     DatabaseReference rootref = db.getReference();
     DatabaseReference userRef = rootref.child("Users");
+
 
 
     //Edit Text for HoursPerWeek and FeesPerClass
@@ -61,8 +65,9 @@ public class SignupForm2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 submit();
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(),LoginScreen.class);
                 startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Please login to continue", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -73,14 +78,13 @@ public class SignupForm2 extends AppCompatActivity {
     public void submit()
 
     {
-
             String hourValue = hours.getText().toString();
             String feesValue = fees.getText().toString();
 
             member.setHour(hourValue);
             member.setFees(feesValue);
 
-            userRef.push().setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+        userRef.push().setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
 
@@ -94,4 +98,6 @@ public class SignupForm2 extends AppCompatActivity {
             })
 
 ;    }
+
+
 }
