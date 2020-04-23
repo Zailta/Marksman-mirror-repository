@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,14 @@ public class SignupForm3 extends AppCompatActivity {
     EditText profession, domain, cInstitute;
     // Image Button for previous page(activity_signup_form1.xml) and next page(activity_signup_form2.xml)
     ImageButton buttonThree, buttonFour;
+    //Radiogroup for category
+    RadioGroup mCategory;
+    //RadioButton for category selection
+    RadioButton mCategoryOption;
+
+    // Strings for data
+    String professionValue, domainValue, cInstituteValue, categoryValue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +47,7 @@ public class SignupForm3 extends AppCompatActivity {
         cInstitute = findViewById(R.id.editText5);
         buttonThree = findViewById(R.id.form3backbutton);
         buttonFour = findViewById(R.id.nextbuttonform3);
+        mCategory = findViewById(R.id.category);
 
 
 
@@ -45,6 +56,30 @@ public class SignupForm3 extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
 
         member = bundle.getParcelable("Member");
+
+
+        //functionality of radioGroup Button
+        mCategory.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                mCategoryOption = mCategory.findViewById(checkedId);
+
+                switch (checkedId)
+                {
+                    case R.id.radioButton5:
+                        categoryValue = mCategoryOption.getText().toString();
+                        break;
+                    case R.id.radioButton6:
+                        categoryValue = mCategoryOption.getText().toString();
+                        break;
+                    case R.id.radioButton7:
+                        categoryValue = mCategoryOption.getText().toString();
+                        break;
+                    default:
+                }
+
+            }
+        });
 
 
         //this button takes user back to activity_signup_form1.xml
@@ -89,14 +124,15 @@ public class SignupForm3 extends AppCompatActivity {
 
             Bundle bundle = new Bundle();
 
-            String professionValue = profession.getText().toString();
-            String domainValue = domain.getText().toString();
-            String cInstituteValue = cInstitute.getText().toString();
+            professionValue = profession.getText().toString();
+            domainValue = domain.getText().toString();
+            cInstituteValue = cInstitute.getText().toString();
 
 
             member.setProfession(professionValue);
             member.setDomain(domainValue);
             member.setcInstitute(cInstituteValue);
+            member.setCategory(categoryValue);
 
             bundle.putParcelable("Members",member);
 

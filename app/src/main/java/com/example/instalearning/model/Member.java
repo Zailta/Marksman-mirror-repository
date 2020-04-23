@@ -13,8 +13,9 @@ public class Member implements Parcelable {
     String hour;
     String fees;
     String gender;
+    String category;
 
-    public Member(String email, String name, String phoneNum, String profession, String domain, String cInstitute, String hour, String fees, String gender) {
+    public Member(String email, String name, String phoneNum, String profession, String domain, String cInstitute, String hour, String fees, String gender, String category) {
         this.email = email;
         this.name = name;
         this.phoneNum = phoneNum;
@@ -24,6 +25,7 @@ public class Member implements Parcelable {
         this.hour = hour;
         this.fees = fees;
         this.gender = gender;
+        this.category = category;
     }
 
     public Member() {
@@ -39,6 +41,7 @@ public class Member implements Parcelable {
         hour = in.readString();
         fees = in.readString();
         gender = in.readString();
+        category = in.readString();
     }
 
     public static final Creator<Member> CREATOR = new Creator<Member>() {
@@ -125,6 +128,14 @@ public class Member implements Parcelable {
         this.gender = gender;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -141,5 +152,6 @@ public class Member implements Parcelable {
         dest.writeString(hour);
         dest.writeString(fees);
         dest.writeString(gender);
+        dest.writeString(category);
     }
 }
