@@ -24,9 +24,6 @@ public class SignupForm2 extends AppCompatActivity {
     // Write a message to the database
     DatabaseReference rootref = db.getReference();
     DatabaseReference userRef = rootref.child("Users");
-
-
-
     //Edit Text for HoursPerWeek and FeesPerClass
     EditText hours,fees;
     //ImageButton for previous page(activity_signup_form3.xml) and submit button
@@ -84,7 +81,7 @@ public class SignupForm2 extends AppCompatActivity {
             member.setHour(hourValue);
             member.setFees(feesValue);
 
-        userRef.push().setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+        userRef.push().child(member.getName()).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
 
