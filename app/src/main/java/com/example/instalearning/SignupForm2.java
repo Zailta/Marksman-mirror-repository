@@ -81,7 +81,7 @@ public class SignupForm2 extends AppCompatActivity {
             member.setHour(hourValue);
             member.setFees(feesValue);
 
-        userRef.push().child(member.getName()).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+        userRef.push().child(member.getPhoneNum()).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
 
