@@ -19,47 +19,75 @@
         app:layout_constraintVertical_bias="0.058"
         app:srcCompat="@drawable/fill" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Professional"
-        android:textColor="#2e5339"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="150dp"
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coach/Trainer"
-        android:textColor="#2e5339"
-        android:textSize="18sp"
+        android:src="@drawable/chooseacategory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
+        app:layout_constraintVertical_bias="0.303" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="150dp"
+    <RadioGroup
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Freelancer"
-        android:textColor="#2e5339"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.439" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Professional"
+            android:textColor="#2e5339"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.685" />
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coach/Trainer"
+            android:textColor="#2e5339"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.118"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.731" />
+
+        <RadioButton
+            android:id="@+id/radioButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Freelancer"
+            android:textColor="#2e5339"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.776" />
+
+    </RadioGroup>
 
     <EditText
         android:id="@+id/editText3"
@@ -135,17 +163,6 @@
         app:layout_constraintVertical_bias="0.931"
         app:srcCompat="@drawable/back" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chooseacategory"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
 
     <ImageView
         android:id="@+id/imageView9"
