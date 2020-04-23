@@ -49,7 +49,7 @@ public class SignupForm2 extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        member = bundle.getParcelable("Members");
+        member = bundle.getParcelable("Member");
 
         // This button takes back to activity_signup_form3.xml
         buttonFive.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +84,7 @@ public class SignupForm2 extends AppCompatActivity {
             member.setHour(hourValue);
             member.setFees(feesValue);
 
-        userRef.push().child(member.getName()).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+        userRef.child(member.getName()).push().setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
 

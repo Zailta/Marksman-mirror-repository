@@ -134,7 +134,7 @@ public class SignupForm3 extends AppCompatActivity {
             member.setcInstitute(cInstituteValue);
             member.setCategory(categoryValue);
 
-            bundle.putParcelable("Members",member);
+            bundle.putParcelable("Member",member);
 
             Intent intent = new Intent(SignupForm3.this,SignupForm2.class);
             intent.putExtras(bundle);
