@@ -35,7 +35,14 @@ class SignupScreen : AppCompatActivity() {
                                         ?.addOnCompleteListener { task ->
                                             if (task.isSuccessful) {
                                                 Toast.makeText(baseContext, "A verification link has been sent to your email ", Toast.LENGTH_LONG).show()
-                                                startActivity(Intent(this,SignupForm1::class.java))
+                                                var currentUser: FirebaseUser? = auth.currentUser
+                                                var intent= Intent(this, LoginScreen::class.java)
+                                                if (currentUser != null) {
+                                                    intent.putExtra("email",currentUser.email)
+                                                    intent.putExtra("uid",currentUser.uid)
+                                                }
+
+                                                startActivity(intent)
                                             }
                                         }
                             } else {

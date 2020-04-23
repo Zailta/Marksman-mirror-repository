@@ -24,6 +24,9 @@ public class SignupForm2 extends AppCompatActivity {
     // Write a message to the database
     DatabaseReference rootref = db.getReference();
     DatabaseReference userRef = rootref.child("Users");
+
+
+
     //Edit Text for HoursPerWeek and FeesPerClass
     EditText hours,fees;
     //ImageButton for previous page(activity_signup_form3.xml) and submit button
@@ -62,9 +65,9 @@ public class SignupForm2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 submit();
-                Intent intent = new Intent(getApplicationContext(),LoginScreen.class);
+                Intent intent = new Intent(getApplicationContext(),HomeScreen.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Please login to continue", Toast.LENGTH_SHORT).show();
+
             }
         });
 

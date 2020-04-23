@@ -100,7 +100,7 @@ public class SignupForm1 extends AppCompatActivity {
     public void nextClickOne()
     {
         // To check whether user as filled all the details in activity_signup_form1.xml or not
-        if(name.getText().toString().isEmpty() && phoneNum.getText().toString().isEmpty() && mGender.toString().isEmpty() )
+        if(name.getText().toString().isEmpty() && phoneNum.getText().toString().isEmpty() && mGender.toString().isEmpty())
         {
             Toast.makeText(this,"Please fill all the parameters",Toast.LENGTH_SHORT).show();
         }
