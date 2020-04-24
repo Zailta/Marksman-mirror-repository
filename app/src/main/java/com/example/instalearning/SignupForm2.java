@@ -80,11 +80,12 @@ public class SignupForm2 extends AppCompatActivity {
             String hourValue = hours.getText().toString();
             String feesValue = fees.getText().toString();
             String actualEmail;
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
             member.setHour(hourValue);
             member.setFees(feesValue);
 
-        rootref.child(actualEmail=SplitString(member.getEmail())).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+        rootref.child(SplitString(user.getEmail().toString())).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
 
