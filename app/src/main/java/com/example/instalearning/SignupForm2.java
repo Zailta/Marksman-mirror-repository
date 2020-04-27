@@ -64,7 +64,7 @@ public class SignupForm2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 submit();
-                Intent intent = new Intent(getApplicationContext(),HomeScreen.class);
+                Intent intent = new Intent(getApplicationContext(),NewHomeScreen.class);
                 startActivity(intent);
 
             }

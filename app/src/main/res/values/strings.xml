@@ -2,4 +2,8 @@
     <string name="app_name">InstaLearning</string>
     <string name="desc" />
     <string name="get_started">Get Started</string>
+    <string name="menu_calendar">Calendar</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+
 </resources>
