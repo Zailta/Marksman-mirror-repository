@@ -17,7 +17,6 @@
         <activity android:name=".SignupForm3" />
         <activity android:name=".SignupForm2" />
         <activity android:name=".SignupForm1" />
-        <activity android:name=".HomeScreen" />
         <activity android:name=".LoginScreen" />
         <activity android:name=".SignupScreen" />
         <activity android:name=".MainActivity">
