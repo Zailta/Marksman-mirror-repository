@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="#2E5339"
+        android:src="@drawable/rectangle28">
+
+    </ImageView>
+
+    <ScrollView
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        >>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/name1" />
+            <TextView
+                android:id="@+id/viewname"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/email1" />
+            <TextView
+                android:id="@+id/viewemail"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/phone1" />
+            <TextView
+                android:id="@+id/viewphone"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/gender1" />
+            <TextView
+                android:id="@+id/viewgender"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/professionalcategory" />
+            <TextView
+                android:id="@+id/viewcategory"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profession1" />
+            <TextView
+                android:id="@+id/viewprofession"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/domain1" />
+            <TextView
+                android:id="@+id/viewdomain"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/institute" />
+            <TextView
+                android:id="@+id/viewinstitute"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hoursperweek1" />
+            <TextView
+                android:id="@+id/viewhours"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/availabledays1" />
+            <TextView
+                android:id="@+id/viewavailability"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/feesperclass1" />
+
+
+            <TextView
+                android:id="@+id/viewfees"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle45"
+                android:text="   TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#2E5339"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_bottom_navigation_view"
+        app:itemBackground="@drawable/bg_bottom_navigation_view"
+        android:elevation="8dp"
+        app:itemIconTint="@color/nav_color"
+        app:itemTextColor="@color/nav_color"
+        app:menu="@menu/menu_bottom_navigation_view"/>
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="142dp"
+        android:layout_height="137dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="120dp"
+        app:srcCompat="@drawable/intersection1" />
+
+    <ImageButton
+        android:id="@+id/editpen"
+        android:layout_width="63dp"
+        android:layout_height="56dp"
+        android:layout_marginLeft="350dp"
+        android:background="@drawable/rectangle28"
+        android:layout_marginTop="35px"
+        app:srcCompat="@drawable/pen2" />
+
+    <ImageButton
+        android:id="@+id/backarrow"
+        android:layout_width="119dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="3px"
+
+        android:background="@drawable/rectangle28"
+        app:srcCompat="@drawable/group74" />
+    <TextView
+        android:id="@+id/viewname1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="   TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="70dp"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
