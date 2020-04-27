@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".NewHomeScreen">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_bottom_navigation_view"
+        android:elevation="8dp"
+        app:itemBackground="@drawable/bg_bottom_navigation_view"
+        app:itemIconTint="@color/nav_color"
+        app:itemTextColor="@color/nav_color"
+        app:menu="@menu/menu_bottom_navigation_view" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="410dp"
+        android:layout_height="141dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="#2E5339"
+        app:srcCompat="@drawable/group76" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        app:srcCompat="@drawable/group74" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="35dp"
+        android:layout_height="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="370dp"
+        app:srcCompat="@drawable/pen2" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="401dp"
+                android:layout_height="265dp"
+                android:layout_below="@+id/imageView17"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="30dp"
+                app:cardMaxElevation="20dp">
+
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="340dp"
+                    android:layout_height="223dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    app:srcCompat="@drawable/faq" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="203dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="30dp"
+                app:cardMaxElevation="20dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="367dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:text="What do the courses include?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#2E5339"
+                    android:textColorHighlight="#2E5339"
+                    android:textColorHint="#2E5339"
+                    android:textColorLink="#2E5339" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="392dp"
+                    android:layout_height="149dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="50dp"
+                    android:text="The courses have a wide range of categories, some of which include: business & entrepreneurship, programming, academics, the arts, health & fitness, language, music, technology, games, and more. "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#2E5339"
+                    android:textColorHighlight="#2E5339"
+                    android:textColorHint="#2E5339"
+                    android:textColorLink="#2E5339" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="412dp"
+                android:layout_height="227dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="30dp"
+                app:cardMaxElevation="20dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="367dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Promote Your Course With Coupons and Referral Links"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#2E5339"
+                    android:textColorHighlight="#2E5339"
+                    android:textColorHint="#2E5339"
+                    android:textColorLink="#2E5339" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="366dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="80dp"
+                    android:text="Creating coupons and referring students is an important part of any instructor's promotional strategy. When students use your coupon or referral link to enroll in your course, you will receive 97% of the revenue share. "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#2E5339"
+                    android:textColorHighlight="#2E5339"
+                    android:textColorHint="#2E5339"
+                    android:textColorLink="#2E5339" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="401dp"
+                android:layout_height="437dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="30dp"
+                app:cardMaxElevation="20dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="367dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Instructor Promotional Agreement and Deals"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#2E5339"
+                    android:textColorHighlight="#2E5339"
+                    android:textColorHint="#2E5339"
+                    android:textColorLink="#2E5339" />
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="366dp"
+                    android:layout_height="273dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="80dp"
+                    android:text="As an instructor, you have the option to participate in the Udemy Deals Program. The Udemy Deals Program is made up of two marketing channels that spotlight your course(s) in different ways. Millions of students enroll in courses every year through the Udemy Deals Program, and both the Percentage Promotions and the Fixed Price Promotions are powerful levers to help you maximize your revenue potential on Udemy. You can opt out of this program at any time by editing your promotional agreements."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#2E5339"
+                    android:textColorHighlight="#2E5339"
+                    android:textColorHint="#2E5339"
+                    android:textColorLink="#2E5339" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
