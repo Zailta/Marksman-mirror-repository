@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
@@ -26,5 +18,130 @@
         app:itemIconTint="@color/nav_color"
         app:itemTextColor="@color/nav_color"
         app:menu="@menu/menu_bottom_navigation_view"/>
+
+    <ImageView
+        android:id="@+id/bgview"
+        android:layout_width="match_parent"
+        android:layout_height="273dp"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="388dp"
+        app:srcCompat="@drawable/bgdesign"
+        android:contentDescription="@string/desc" />
+
+    <ImageView
+        android:id="@+id/profilepic"
+        android:layout_width="126dp"
+        android:layout_height="126dp"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="480dp"
+        app:srcCompat="@drawable/profileimage"
+        android:contentDescription="@string/desc" />
+
+    <ImageButton
+        android:id="@+id/myaccButton"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="33.5dp"
+        android:layout_marginTop="241dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="361dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/myaccbutton"
+        android:contentDescription="@string/desc" />
+
+    <ImageButton
+        android:id="@+id/settingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="33.5dp"
+        android:layout_marginTop="307dp"
+        android:layout_marginEnd="33.5dp"
+        android:layout_marginBottom="291dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/settingsbutton"
+        android:contentDescription="@string/desc" />
+
+    <ImageButton
+        android:id="@+id/passwordButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="33.5dp"
+        android:layout_marginTop="383dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="214dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/passwordsbutton"
+        android:contentDescription="@string/desc" />
+
+    <ImageButton
+        android:id="@+id/aboutusButton"
+        android:scaleType="centerInside"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="33.5dp"
+        android:layout_marginEnd="33.5dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginBottom="143dp"
+        app:srcCompat="@drawable/aboutusbutton"
+        android:contentDescription="@string/desc" />
+
+    <ImageButton
+        android:id="@+id/faqButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="33.5dp"
+        android:layout_marginTop="516dp"
+        android:layout_marginEnd="33.5dp"
+        android:layout_marginBottom="81dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/faqsbutton"
+        android:contentDescription="@string/desc" />
+
+    <ImageButton
+        android:id="@+id/logoutButton"
+        android:layout_width="292dp"
+        android:layout_height="52dp"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="592dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="17dp"
+        app:srcCompat="@drawable/logoutbutton"
+        android:contentDescription="@string/desc" />
 
 </RelativeLayout>
