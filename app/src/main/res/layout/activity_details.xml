@@ -118,7 +118,7 @@
             app:cardMaxElevation="20dp">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView5"
                 android:layout_width="185dp"
                 android:layout_height="55dp"
                 android:layout_alignParentStart="true"
@@ -133,7 +133,7 @@
                 android:textColorLink="#2E5339" />
 
             <EditText
-                android:id="@+id/editText11"
+                android:id="@+id/editText13"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView3"
@@ -156,7 +156,7 @@
             app:cardMaxElevation="20dp">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView21"
                 android:layout_width="260dp"
                 android:layout_height="55dp"
                 android:layout_alignParentStart="true"
@@ -171,7 +171,7 @@
                 android:textColorLink="#2E5339" />
 
             <EditText
-                android:id="@+id/editText11"
+                android:id="@+id/editText10"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView3"
