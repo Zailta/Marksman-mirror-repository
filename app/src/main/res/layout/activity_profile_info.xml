@@ -165,20 +165,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/availabledays1" />
-            <TextView
-                android:id="@+id/viewavailability"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@drawable/rectangle45"
-                android:text="   TextView"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textColor="#2E5339"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
 
             <ImageView
