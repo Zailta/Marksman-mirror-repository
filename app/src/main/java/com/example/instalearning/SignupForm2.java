@@ -1,28 +1,43 @@
 package com.example.instalearning;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.instalearning.model.Member;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.UUID;
 
 public class SignupForm2 extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     // Write a message to the database
     DatabaseReference rootref = db.getReference("Users");
+
+    //Firebase code for storage
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
 
 
@@ -30,6 +45,10 @@ public class SignupForm2 extends AppCompatActivity {
     EditText hours,fees;
     //ImageButton for previous page(activity_signup_form3.xml) and submit button
     ImageButton buttonFive, buttonSix;
+    //ImageView for profile Picture
+     ImageView profileImage;
+     //uri
+    public  Uri imageUri;
 
     // class that it used for grabing all details
     Member member;
@@ -43,6 +62,11 @@ public class SignupForm2 extends AppCompatActivity {
         fees = findViewById(R.id.editText10);
         buttonFive = findViewById(R.id.form2backbutton);
         buttonSix = findViewById(R.id.nextbuttonform2);
+        profileImage = findViewById(R.id.profileUploadImage);
+
+        //initializing firebase storage
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         //getting data
         Intent intent = getIntent();
@@ -69,6 +93,16 @@ public class SignupForm2 extends AppCompatActivity {
 
             }
         });
+
+        //for profile image
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                choosePicture();
+            }
+        });
+
 
     }
 
@@ -104,5 +138,46 @@ public class SignupForm2 extends AppCompatActivity {
         return For_split_email[0];
     }
 
+    //function for choose picture
+    public void choosePicture()
+    {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,1);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1 && resultCode == RESULT_OK && data!=null && data.getData()!=null)
+        {
+            imageUri = data.getData();
+            profileImage.setImageURI(imageUri);
+            uploadPicture();
+        }
+    }
+
+    //function for uploading picture
+
+    private void uploadPicture()
+    {
+        final String randomKey = UUID.randomUUID().toString();
+        StorageReference riversRef = storageReference.child("images/" + randomKey);
+
+        riversRef.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Snackbar.make(findViewById(android.R.id.content),"Image Uploaded",Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Toast.makeText(getApplicationContext(),"Failed To Upload",Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }
