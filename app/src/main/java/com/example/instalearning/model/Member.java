@@ -16,16 +16,17 @@ public class Member implements Parcelable {
     String category;
 
     public Member(String email, String name, String phoneNum, String profession, String domain, String cInstitute, String hour, String fees, String gender, String category) {
-        this.email = email;
-        this.name = name;
-        this.phoneNum = phoneNum;
-        this.profession = profession;
-        this.domain = domain;
-        this.cInstitute = cInstitute;
-        this.hour = hour;
-        this.fees = fees;
-        this.gender = gender;
-        this.category = category;
+        { this.email = email;
+            this.name = name;
+            this.phoneNum = phoneNum;
+            this.profession = profession;
+            this.domain = domain;
+            this.cInstitute = cInstitute;
+            this.hour = hour;
+            this.fees = fees;
+            this.gender = gender;
+            this.category = category;
+        }
     }
 
     public Member() {
