@@ -14,8 +14,9 @@ public class Member implements Parcelable {
     String fees;
     String gender;
     String category;
+    String imageId;
 
-    public Member(String email, String name, String phoneNum, String profession, String domain, String cInstitute, String hour, String fees, String gender, String category) {
+    public Member(String email, String name, String phoneNum, String profession, String domain, String cInstitute, String hour, String fees, String gender, String category,String imageId) {
         { this.email = email;
             this.name = name;
             this.phoneNum = phoneNum;
@@ -26,6 +27,7 @@ public class Member implements Parcelable {
             this.fees = fees;
             this.gender = gender;
             this.category = category;
+            this.imageId=imageId;
         }
     }
 
@@ -43,6 +45,7 @@ public class Member implements Parcelable {
         fees = in.readString();
         gender = in.readString();
         category = in.readString();
+        imageId=in.readString();
     }
 
     public static final Creator<Member> CREATOR = new Creator<Member>() {
@@ -56,6 +59,14 @@ public class Member implements Parcelable {
             return new Member[size];
         }
     };
+
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
 
     public String getEmail() {
         return email;

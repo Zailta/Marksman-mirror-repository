@@ -5,11 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.UUID;
@@ -36,11 +39,7 @@ public class SignupForm2 extends AppCompatActivity {
     DatabaseReference rootref = db.getReference("Users");
 
     //Firebase code for storage
-    private FirebaseStorage storage;
     private StorageReference storageReference;
-
-
-
     //Edit Text for HoursPerWeek and FeesPerClass
     EditText hours,fees;
     //ImageButton for previous page(activity_signup_form3.xml) and submit button
@@ -49,6 +48,7 @@ public class SignupForm2 extends AppCompatActivity {
      ImageView profileImage;
      //uri
     public  Uri imageUri;
+    private StorageTask  uploadTask;
 
     // class that it used for grabing all details
     Member member;
@@ -65,8 +65,8 @@ public class SignupForm2 extends AppCompatActivity {
         profileImage = findViewById(R.id.profileUploadImage);
 
         //initializing firebase storage
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
+        storageReference=FirebaseStorage.getInstance().getReference("Images");
+
 
         //getting data
         Intent intent = getIntent();
@@ -111,14 +111,21 @@ public class SignupForm2 extends AppCompatActivity {
     public void submit()
 
     {
+        String imageId3;
+        String imageId2;
             String hourValue = hours.getText().toString();
             String feesValue = fees.getText().toString();
-            String actualEmail;
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
             member.setHour(hourValue);
             member.setFees(feesValue);
-
+        if(uploadTask !=null && uploadTask.isInProgress()){
+            Toast.makeText(SignupForm2.this,"Upload in Progress",Toast.LENGTH_LONG).show();
+        }
+        else {
+            imageId2=Fileuploader();
+            member.setImageId(imageId2);
+        }
         rootref.child(SplitString(user.getEmail().toString())).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -130,7 +137,8 @@ public class SignupForm2 extends AppCompatActivity {
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(SignupForm2.this, "Failure Try Again", Toast.LENGTH_SHORT).show();
                 }
-            })
+            });
+
 
 ;    }
     private String SplitString(String email){
@@ -145,7 +153,6 @@ public class SignupForm2 extends AppCompatActivity {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent,1);
-
     }
 
     @Override
@@ -155,29 +162,35 @@ public class SignupForm2 extends AppCompatActivity {
         {
             imageUri = data.getData();
             profileImage.setImageURI(imageUri);
-            uploadPicture();
         }
     }
 
     //function for uploading picture
-
-    private void uploadPicture()
-    {
-        final String randomKey = UUID.randomUUID().toString();
-        StorageReference riversRef = storageReference.child("images/" + randomKey);
-
-        riversRef.putFile(imageUri)
+    private String getExtension(Uri uri){
+        ContentResolver cr= getContentResolver();
+        MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
+    }
+    private String Fileuploader(){
+        String imageId;
+        imageId=System.currentTimeMillis()+"."+getExtension(imageUri);
+        StorageReference Ref=storageReference.child(imageId);
+        uploadTask=Ref.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Snackbar.make(findViewById(android.R.id.content),"Image Uploaded",Snackbar.LENGTH_SHORT).show();
+                        // Get a URL to the uploaded content
+                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        Toast.makeText(SignupForm2.this,"Image Uploaded",Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
-                        Toast.makeText(getApplicationContext(),"Failed To Upload",Toast.LENGTH_SHORT).show();
+                        // Handle unsuccessful uploads
+                        // ...
                     }
                 });
+        return imageId;
     }
 }
