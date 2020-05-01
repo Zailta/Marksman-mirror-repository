@@ -16,11 +16,11 @@
     </ImageView>
 
     <ScrollView
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="270dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="80dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="580dp"
 
 
         >>
@@ -37,13 +37,16 @@
             <TextView
                 android:id="@+id/viewname"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
+
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+               />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -52,13 +55,15 @@
             <TextView
                 android:id="@+id/viewemail"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+              />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -67,13 +72,15 @@
             <TextView
                 android:id="@+id/viewphone"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+            />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -82,13 +89,15 @@
             <TextView
                 android:id="@+id/viewgender"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="extView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+               />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -97,13 +106,15 @@
             <TextView
                 android:id="@+id/viewcategory"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -112,13 +123,15 @@
             <TextView
                 android:id="@+id/viewprofession"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+               />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -127,13 +140,15 @@
             <TextView
                 android:id="@+id/viewdomain"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -142,13 +157,15 @@
             <TextView
                 android:id="@+id/viewinstitute"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+              />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -157,13 +174,15 @@
             <TextView
                 android:id="@+id/viewhours"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+              />
 
 
 
@@ -176,13 +195,15 @@
             <TextView
                 android:id="@+id/viewfees"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
                 android:background="@drawable/rectangle45"
-                android:text="   TextView"
+                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#2E5339"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                 />
 
         </LinearLayout>
     </ScrollView>
@@ -202,39 +223,45 @@
         app:menu="@menu/menu_bottom_navigation_view"/>
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/profilepicture"
         android:layout_width="142dp"
         android:layout_height="137dp"
-        android:layout_marginLeft="140dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
         android:layout_marginTop="120dp"
-        app:srcCompat="@drawable/intersection1" />
+       />
 
     <ImageButton
         android:id="@+id/editpen"
-        android:layout_width="63dp"
-        android:layout_height="56dp"
-        android:layout_marginLeft="350dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/rectangle28"
-        android:layout_marginTop="35px"
+        android:layout_marginTop="20dp"
         app:srcCompat="@drawable/pen2" />
 
     <ImageButton
         android:id="@+id/backarrow"
-        android:layout_width="119dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="3px"
-
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/rectangle28"
         app:srcCompat="@drawable/group74" />
+
     <TextView
         android:id="@+id/viewname1"
-        android:layout_width="wrap_content"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:text="   TextView"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="#ffffff"
-        android:layout_marginLeft="70dp"
-        android:textSize="50sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
 
