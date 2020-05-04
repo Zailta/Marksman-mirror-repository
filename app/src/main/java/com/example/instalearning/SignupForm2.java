@@ -31,6 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class SignupForm2 extends AppCompatActivity {
@@ -49,6 +50,7 @@ public class SignupForm2 extends AppCompatActivity {
      //uri
     public  Uri imageUri;
     private StorageTask  uploadTask;
+    public String copyimageUrl;
 
     // class that it used for grabing all details
     Member member;
@@ -111,11 +113,10 @@ public class SignupForm2 extends AppCompatActivity {
     public void submit()
 
     {
-        String imageId3;
         String imageId2;
             String hourValue = hours.getText().toString();
             String feesValue = fees.getText().toString();
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
             member.setHour(hourValue);
             member.setFees(feesValue);
@@ -123,22 +124,9 @@ public class SignupForm2 extends AppCompatActivity {
             Toast.makeText(SignupForm2.this,"Upload in Progress",Toast.LENGTH_LONG).show();
         }
         else {
-            imageId2=Fileuploader();
-            member.setImageId(imageId2);
+            Fileuploader();
+            //member.setImageId(imageId2);
         }
-        rootref.child(SplitString(user.getEmail().toString())).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-
-                    Toast.makeText(SignupForm2.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(SignupForm2.this, "Failure Try Again", Toast.LENGTH_SHORT).show();
-                }
-            });
-
 
 ;    }
     private String SplitString(String email){
@@ -171,16 +159,39 @@ public class SignupForm2 extends AppCompatActivity {
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
     }
-    private String Fileuploader(){
-        String imageId;
+    private void Fileuploader(){
+        final String imageId;
+        String a;
         imageId=System.currentTimeMillis()+"."+getExtension(imageUri);
-        StorageReference Ref=storageReference.child(imageId);
+        final StorageReference Ref=storageReference.child(imageId);
         uploadTask=Ref.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // Get a URL to the uploaded content
                         //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        //imageUrl=taskSnapshot.getUploadSessionUri().toString();
+                        member.setImageId(imageId);
+                        Ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                copyimageUrl=String.valueOf(uri);
+                                member.setImageUrl(copyimageUrl);
+                                rootref.child(SplitString(user.getEmail().toString())).setValue(member).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+
+                                        Toast.makeText(SignupForm2.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(SignupForm2.this, "Failure Try Again", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        });
                         Toast.makeText(SignupForm2.this,"Image Uploaded",Toast.LENGTH_LONG).show();
                     }
                 })
@@ -191,6 +202,5 @@ public class SignupForm2 extends AppCompatActivity {
                         // ...
                     }
                 });
-        return imageId;
     }
 }
