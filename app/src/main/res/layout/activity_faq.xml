@@ -18,6 +18,7 @@
         app:itemTextColor="@color/nav_color"
         app:menu="@menu/menu_bottom_navigation_view" />
 
+
     <ImageView
         android:id="@+id/imageView17"
         android:layout_width="410dp"
